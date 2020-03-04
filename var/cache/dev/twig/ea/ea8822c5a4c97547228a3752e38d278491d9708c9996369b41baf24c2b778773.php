@@ -131,7 +131,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
         // line 29
         if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 29, $this->source); })())) {
             // line 30
-            echo "        <li class=\"list-group-item d-flex justify-content-between align-items-center\">
+            echo "        <h5 class=\"list-group-item d-flex justify-content-between align-items-center\">
             <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">";
             // line 32
@@ -145,7 +145,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     </button>
                 </a>
                 </nav>
-            </li>
+            </h5>
               <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 ";
@@ -250,7 +250,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
         </ul>
     <div class=\"col-md-5 list mb-1\">    
         {% if currentlisting %}
-        <li class=\"list-group-item d-flex justify-content-between align-items-center\">
+        <h5 class=\"list-group-item d-flex justify-content-between align-items-center\">
             <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
                 <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\">
@@ -258,7 +258,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     </button>
                 </a>
                 </nav>
-            </li>
+            </h5>
               <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 {% for task in currentlisting.tasks %}
