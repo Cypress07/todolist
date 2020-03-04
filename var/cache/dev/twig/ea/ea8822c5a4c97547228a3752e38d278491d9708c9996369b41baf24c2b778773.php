@@ -142,7 +142,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             // line 34
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 34, $this->source); })()), "id", [], "any", false, false, false, 34)]), "html", null, true);
             echo "\"</a>
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-radiation-alt\"></i></i></button></a>
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
               </nav>
             </li>
         ";
@@ -216,7 +216,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             <nav class=\"navbar navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
                 <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\"</a>
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-radiation-alt\"></i></i></button></a>
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
               </nav>
             </li>
         {% else %}
