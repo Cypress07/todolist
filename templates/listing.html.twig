@@ -27,15 +27,12 @@
         </ul>
     <div class="col-md-5 list mb-1">    
         {% if currentlisting %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">{{currentlisting.name}}</a>
                 <a href = "{{path ('listing_delete', {'listingId' : currentlisting.id }) }}">
-                    <button class="btn btn-outline-danger" type="delete"><i class="fas fa-recycle"></i>
-                    </button>
+                    <button class="btn btn-outline-danger" type="delete"><i class="fas fa-recycle"></i></button>
                 </a>
                 </nav>
-            </li>
               <div class="row px-4 mt-3"> 
               <table class="table table-striped">
                 {% for task in currentlisting.tasks %}
