@@ -124,38 +124,37 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     </div>
                 </div>
         </form>
-        
     </li>
         </ul>
     <div class=\"col-md-5 list mb-1\">    
         </li>
         ";
-        // line 31
-        if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 31, $this->source); })())) {
-            // line 32
+        // line 30
+        if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 30, $this->source); })())) {
+            // line 31
             echo "        <li class=\"list-group-item d-flex justify-content-between align-items-center\">
             <nav class=\"navbar navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 34, $this->source); })()), "name", [], "any", false, false, false, 34), "html", null, true);
+            // line 33
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "name", [], "any", false, false, false, 33), "html", null, true);
             echo "</a>
                 <a href = \"";
-            // line 35
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 35, $this->source); })()), "id", [], "any", false, false, false, 35)]), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 34, $this->source); })()), "id", [], "any", false, false, false, 34)]), "html", null, true);
             echo "\"</a>
-                    <button class=\"btn btn-outline-primary\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-radiation-alt\"></i></i></button></a>
               </nav>
             </li>
         ";
         } else {
-            // line 40
+            // line 39
             echo "        <nav class=\"navbar navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
         <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
         ";
         }
-        // line 45
+        // line 44
         echo "    </div>
 ";
         
@@ -178,7 +177,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
 
     public function getDebugInfo()
     {
-        return array (  159 => 45,  152 => 40,  144 => 35,  140 => 34,  136 => 32,  134 => 31,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  158 => 44,  151 => 39,  143 => 34,  139 => 33,  135 => 31,  133 => 30,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -208,7 +207,6 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     </div>
                 </div>
         </form>
-        
     </li>
         </ul>
     <div class=\"col-md-5 list mb-1\">    
@@ -218,7 +216,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             <nav class=\"navbar navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
                 <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\"</a>
-                    <button class=\"btn btn-outline-primary\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-radiation-alt\"></i></i></button></a>
               </nav>
             </li>
         {% else %}
