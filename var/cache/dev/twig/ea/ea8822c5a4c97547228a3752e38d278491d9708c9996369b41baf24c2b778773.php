@@ -127,34 +127,73 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
     </li>
         </ul>
     <div class=\"col-md-5 list mb-1\">    
-        </li>
         ";
-        // line 30
-        if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 30, $this->source); })())) {
-            // line 31
+        // line 29
+        if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 29, $this->source); })())) {
+            // line 30
             echo "        <li class=\"list-group-item d-flex justify-content-between align-items-center\">
-            <nav class=\"navbar navbar-light bg-light\">
+            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">";
-            // line 33
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "name", [], "any", false, false, false, 33), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 32, $this->source); })()), "name", [], "any", false, false, false, 32), "html", null, true);
             echo "</a>
                 <a href = \"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 34, $this->source); })()), "id", [], "any", false, false, false, 34)]), "html", null, true);
-            echo "\"</a>
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
-              </nav>
+            // line 33
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
+            echo "\">
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i>
+                    </button>
+                </a>
+                </nav>
             </li>
+              <div class=\"row px-4 mt-3\"> 
+              <table class=\"table table-striped\">
+                ";
+            // line 41
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 41, $this->source); })()), "tasks", [], "any", false, false, false, 41));
+            foreach ($context['_seq'] as $context["_key"] => $context["task"]) {
+                // line 42
+                echo "                <tr>
+                    <td>
+                        <a href = \"#\"> ";
+                // line 44
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["task"], "name", [], "any", false, false, false, 44), "html", null, true);
+                echo " </a>
+                    </td>
+                </tr>
+                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['task'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 48
+            echo "              </table>
+            </div>
+            
         ";
         } else {
-            // line 39
-            echo "        <nav class=\"navbar navbar-light bg-light\">
+            // line 52
+            echo "        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
         <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
         ";
         }
-        // line 44
+        // line 57
+        echo "        ";
+        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 57, $this->source); })()), "tasks", [], "any", false, false, false, 57))) {
+            // line 58
+            echo "        
+        ";
+        } else {
+            // line 59
+            echo "  
+        <h6 class=\"navbar-brand\" >Pas de tâche existante</h5>
+        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
+        ";
+        }
+        // line 63
         echo "    </div>
 ";
         
@@ -177,7 +216,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
 
     public function getDebugInfo()
     {
-        return array (  158 => 44,  151 => 39,  143 => 34,  139 => 33,  135 => 31,  133 => 30,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  197 => 63,  191 => 59,  187 => 58,  184 => 57,  177 => 52,  171 => 48,  161 => 44,  157 => 42,  153 => 41,  142 => 33,  138 => 32,  134 => 30,  132 => 29,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -210,20 +249,39 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
     </li>
         </ul>
     <div class=\"col-md-5 list mb-1\">    
-        </li>
         {% if currentlisting %}
         <li class=\"list-group-item d-flex justify-content-between align-items-center\">
-            <nav class=\"navbar navbar-light bg-light\">
+            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
-                <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\"</a>
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button></a>
-              </nav>
+                <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\">
+                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i>
+                    </button>
+                </a>
+                </nav>
             </li>
+              <div class=\"row px-4 mt-3\"> 
+              <table class=\"table table-striped\">
+                {% for task in currentlisting.tasks %}
+                <tr>
+                    <td>
+                        <a href = \"#\"> {{task.name}} </a>
+                    </td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+            
         {% else %}
-        <nav class=\"navbar navbar-light bg-light\">
+        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
         <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
+        {% endif %}
+        {% if currentlisting.tasks | length %}
+        
+        {% else %}  
+        <h6 class=\"navbar-brand\" >Pas de tâche existante</h5>
+        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
         {% endif %}
     </div>
 {% endblock %}", "listing.html.twig", "C:\\workspace\\todolist\\templates\\listing.html.twig");

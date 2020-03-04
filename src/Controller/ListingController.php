@@ -75,7 +75,7 @@ class ListingController extends AbstractController {
                     $entityManager->remove ($listing);
                     $entityManager->flush ();
                     $name = $listing->getName();
-                    $this->addFlash ("success", "Votre liste « $name » a été supprimée avec succès");
+                    $this->addFlash ("success-recycle", "Votre liste « $name » a été supprimée avec succès");
             }
                 return $this->redirectToRoute ('listing_show');
                 }

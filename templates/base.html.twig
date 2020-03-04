@@ -37,6 +37,12 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            {% for message in app.flashes('success-recycle') %}
+                <div class="alert alert-success">
+                    <i class="fas fa-recycle"></i>
+                    {{ message }}
+                </div>
+                {% endfor %}
             </div>
               <div class="row mt-5">
                 {% block body %}{% endblock %}        

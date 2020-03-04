@@ -32,9 +32,8 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/hello/([^/]++)(*:184)'
-                .'|/(\\d+)?(*:199)'
-                .'|/(\\d+)/delete(*:220)'
+                .'|/(\\d+)?(*:176)'
+                .'|/(\\d+)/delete(*:197)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -45,9 +44,8 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        184 => [[['_route' => 'app_hello_world', '_controller' => 'App\\Controller\\HelloController::world'], ['name'], null, null, false, true, null]],
-        199 => [[['_route' => 'listing_show', 'listingId' => null, '_controller' => 'App\\Controller\\ListingController::show'], ['listingId'], null, null, false, true, null]],
-        220 => [
+        176 => [[['_route' => 'listing_show', 'listingId' => null, '_controller' => 'App\\Controller\\ListingController::show'], ['listingId'], null, null, false, true, null]],
+        197 => [
             [['_route' => 'listing_delete', '_controller' => 'App\\Controller\\ListingController::delete'], ['listingId'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],

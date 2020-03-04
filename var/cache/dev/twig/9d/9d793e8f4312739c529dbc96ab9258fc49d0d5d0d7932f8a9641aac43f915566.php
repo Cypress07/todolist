@@ -125,19 +125,37 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 40
+        echo "            ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 40, $this->source); })()), "flashes", [0 => "success-recycle"], "method", false, false, false, 40));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 41
+            echo "                <div class=\"alert alert-success\">
+                    <i class=\"fas fa-recycle\"></i>
+                    ";
+            // line 43
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "
+                </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 46
         echo "            </div>
               <div class=\"row mt-5\">
                 ";
-        // line 42
+        // line 48
         $this->displayBlock('body', $context, $blocks);
         echo "        
               </div>
             </div>
           
         ";
-        // line 46
+        // line 52
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 51
+        // line 57
         echo "    
 </body>
 </html>
@@ -189,7 +207,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     }
 
-    // line 42
+    // line 48
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -207,7 +225,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     }
 
-    // line 46
+    // line 52
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -217,7 +235,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 47
+        // line 53
         echo "            <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
             <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
             <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -243,7 +261,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     public function getDebugInfo()
     {
-        return array (  221 => 47,  211 => 46,  193 => 42,  182 => 9,  172 => 8,  154 => 7,  141 => 51,  139 => 46,  132 => 42,  128 => 40,  119 => 37,  115 => 35,  110 => 34,  101 => 31,  97 => 29,  93 => 28,  90 => 27,  81 => 24,  77 => 22,  73 => 21,  61 => 11,  59 => 8,  55 => 7,  47 => 1,);
+        return array (  239 => 53,  229 => 52,  211 => 48,  200 => 9,  190 => 8,  172 => 7,  159 => 57,  157 => 52,  150 => 48,  146 => 46,  137 => 43,  133 => 41,  128 => 40,  119 => 37,  115 => 35,  110 => 34,  101 => 31,  97 => 29,  93 => 28,  90 => 27,  81 => 24,  77 => 22,  73 => 21,  61 => 11,  59 => 8,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -287,6 +305,12 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
                     {{ message }}
                 </div>
             {% endfor %}
+            {% for message in app.flashes('success-recycle') %}
+                <div class=\"alert alert-success\">
+                    <i class=\"fas fa-recycle\"></i>
+                    {{ message }}
+                </div>
+                {% endfor %}
             </div>
               <div class=\"row mt-5\">
                 {% block body %}{% endblock %}        
