@@ -38,26 +38,25 @@
               <div class="row px-4 mt-3"> 
               <table class="table table-striped">
                 {% for task in currentlisting.tasks %}
+                {% if currentlisting.tasks | length %}
                 <tr>
                     <td>
                         <a href = "#"> {{task.name}} </a>
                     </td>
                 </tr>
-                {% endfor %}
+                
               </table>
             </div>
-            
+            {% else %}  
+        <h6 class="navbar-brand" >Pas de tâche existante</h5>
+        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class="fas fa-plus-square"></i></p>
+        {% endif %}
+        {% endfor %}    
         {% else %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Pas de liste existante</a>
           </nav>
-        <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class="fas fa-plus-square"></i></p>  
-        {% endif %}
-        {% if currentlisting.tasks | length %}
-        
-        {% else %}  
-        <h6 class="navbar-brand" >Pas de tâche existante</h5>
-        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class="fas fa-plus-square"></i></p>
-        {% endif %}
-    </div>
+          <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class="fas fa-plus-square"></i></p>  
+          {% endif %}
+        </div>
 {% endblock %}
