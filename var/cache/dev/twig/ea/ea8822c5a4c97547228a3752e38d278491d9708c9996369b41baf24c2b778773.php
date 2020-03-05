@@ -145,7 +145,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                 </a>
                 </nav>
             </h5>
-              <div class=\"row px-4 mt-3\"> 
+               <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 ";
             // line 40
@@ -153,47 +153,45 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 40, $this->source); })()), "tasks", [], "any", false, false, false, 40));
             foreach ($context['_seq'] as $context["_key"] => $context["task"]) {
                 // line 41
-                echo "                <tr>
+                echo "                ";
+                if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 41, $this->source); })()), "tasks", [], "any", false, false, false, 41))) {
+                    // line 42
+                    echo "                <tr>
                     <td>
                         <a href = \"#\"> ";
-                // line 43
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["task"], "name", [], "any", false, false, false, 43), "html", null, true);
-                echo " </a>
+                    // line 44
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["task"], "name", [], "any", false, false, false, 44), "html", null, true);
+                    echo " </a>
                     </td>
                 </tr>
-                ";
+                </div>
+            ";
+                } else {
+                    // line 48
+                    echo "  
+        <h6 class=\"navbar-brand\" >Pas de tâche existante</h6>
+        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
+        ";
+                }
+                // line 52
+                echo "        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['task'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 47
-            echo "              </table>
-            </div>
-            
+            // line 53
+            echo "                </table>
         ";
         } else {
-            // line 51
+            // line 55
             echo "        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
-        <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
-        ";
+          <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
+          ";
         }
-        // line 56
-        echo "        ";
-        if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 56, $this->source); })()), "tasks", [], "any", false, false, false, 56))) {
-            // line 57
-            echo "        
-        ";
-        } else {
-            // line 58
-            echo "  
-        <h6 class=\"navbar-brand\" >Pas de tâche existante</h5>
-        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
-        ";
-        }
-        // line 62
-        echo "    </div>
+        // line 60
+        echo "        </div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -215,7 +213,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
 
     public function getDebugInfo()
     {
-        return array (  196 => 62,  190 => 58,  186 => 57,  183 => 56,  176 => 51,  170 => 47,  160 => 43,  156 => 41,  152 => 40,  142 => 33,  138 => 32,  134 => 30,  132 => 29,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  194 => 60,  187 => 55,  183 => 53,  177 => 52,  171 => 48,  163 => 44,  159 => 42,  156 => 41,  152 => 40,  142 => 33,  138 => 32,  134 => 30,  132 => 29,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -257,31 +255,30 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                 </a>
                 </nav>
             </h5>
-              <div class=\"row px-4 mt-3\"> 
+               <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 {% for task in currentlisting.tasks %}
+                {% if currentlisting.tasks | length %}
                 <tr>
                     <td>
                         <a href = \"#\"> {{task.name}} </a>
                     </td>
                 </tr>
-                {% endfor %}
-              </table>
-            </div>
-            
+                </div>
+            {% else %}  
+        <h6 class=\"navbar-brand\" >Pas de tâche existante</h6>
+        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
+        {% endif %}
+        {% endfor %}
+                </table>
         {% else %}
         <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
-        <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
-        {% endif %}
-        {% if currentlisting.tasks | length %}
-        
-        {% else %}  
-        <h6 class=\"navbar-brand\" >Pas de tâche existante</h5>
-        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
-        {% endif %}
-    </div>
-{% endblock %}", "listing.html.twig", "C:\\workspace\\todolist\\templates\\listing.html.twig");
+          <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
+          {% endif %}
+        </div>
+{% endblock %}
+", "listing.html.twig", "C:\\workspace\\todolist\\templates\\listing.html.twig");
     }
 }
