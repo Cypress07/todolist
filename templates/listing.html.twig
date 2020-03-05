@@ -44,14 +44,13 @@
                         <a href = "#"> {{task.name}} </a>
                     </td>
                 </tr>
-                
-              </table>
             </div>
             {% else %}  
         <h6 class="navbar-brand" >Pas de tâche existante</h5>
         <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class="fas fa-plus-square"></i></p>
         {% endif %}
-        {% endfor %}    
+        {% endfor %}
+        </table>
         {% else %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Pas de liste existante</a>
