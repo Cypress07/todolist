@@ -5,7 +5,6 @@ namespace App\Controller ;
 use App\Entity\Listing;
 use App\Entity\Task;
 use App\Form\TaskType;
-use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
