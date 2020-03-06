@@ -103,7 +103,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["listing"], "name", [], "any", false, false, false, 11), "html", null, true);
             echo "</a>
         </li>       
-";
+    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['listing'], $context['_parent'], $context['loop']);
@@ -131,66 +131,84 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
         // line 29
         if ((isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 29, $this->source); })())) {
             // line 30
-            echo "        <h5>
-            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+            echo "            <nav class=\"navbar navbar-expand-lg navbar-light bg-light justify-content-between\">
                 <a class=\"navbar-brand\" href=\"#\">";
-            // line 32
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 32, $this->source); })()), "name", [], "any", false, false, false, 32), "html", null, true);
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 31, $this->source); })()), "name", [], "any", false, false, false, 31), "html", null, true);
             echo "</a>
-                <a href = \"";
+                <div>
+                    <a href = \"";
             // line 33
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("task_create", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
             echo "\">
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button>
+                <button class=\"btn btn-outline-primary\" type=\"submit\">
+                    <i class=\"fas fa-plus-square\"></i>
+                    </button>
+                </a>
+                <a href = \"";
+            // line 38
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 38, $this->source); })()), "id", [], "any", false, false, false, 38)]), "html", null, true);
+            echo "\">
+                    <button class=\"btn btn-outline-danger\" type=\"delete\">
+                        <i class=\"fas fa-recycle\"></i>
+                    </button>
+                    </a>
+                </div>
                 </a>
                 </nav>
-            </h5>
-               <div class=\"row px-4 mt-3\"> 
+           
+                <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 ";
-            // line 40
+            // line 49
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 40, $this->source); })()), "tasks", [], "any", false, false, false, 40));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 49, $this->source); })()), "tasks", [], "any", false, false, false, 49));
             foreach ($context['_seq'] as $context["_key"] => $context["task"]) {
-                // line 41
+                // line 50
                 echo "                ";
-                if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 41, $this->source); })()), "tasks", [], "any", false, false, false, 41))) {
-                    // line 42
+                if (twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 50, $this->source); })()), "tasks", [], "any", false, false, false, 50))) {
+                    // line 51
                     echo "                <tr>
                     <td>
-                        <a href = \"#\"> ";
-                    // line 44
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["task"], "name", [], "any", false, false, false, 44), "html", null, true);
-                    echo " </a>
+                        <a href class=\"navbar justify-content-between\"> ";
+                    // line 53
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["task"], "name", [], "any", false, false, false, 53), "html", null, true);
+                    echo "
+                            <button class=\"btn btn-outline-danger\" type=\"delete\">
+                                <i class=\"fas fa-recycle\"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
                 </div>
             ";
                 } else {
-                    // line 48
+                    // line 61
                     echo "  
-        <h6 class=\"navbar-brand\" >Pas de tâche existante</h6>
-        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
+        <h5 class=\"navbar-brand\" >Pas de tâche existante</h5>
+        <p> Vous pouvez créer une nouvelle tâche en cliquant sur le bouton
+            <i class=\"fas fa-plus-square\"></i>
+        </p>
         ";
                 }
-                // line 52
+                // line 67
                 echo "        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['task'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 53
+            // line 68
             echo "                </table>
         ";
         } else {
-            // line 55
+            // line 70
             echo "        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
             <a class=\"navbar-brand\" href=\"#\">Pas de liste existante</a>
           </nav>
           <p>Vous pouvez créer une nouvelle liste en tapant son nom puis Entrée, ou en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>  
           ";
         }
-        // line 60
+        // line 75
         echo "        </div>
 ";
         
@@ -213,7 +231,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
 
     public function getDebugInfo()
     {
-        return array (  194 => 60,  187 => 55,  183 => 53,  177 => 52,  171 => 48,  163 => 44,  159 => 42,  156 => 41,  152 => 40,  142 => 33,  138 => 32,  134 => 30,  132 => 29,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
+        return array (  212 => 75,  205 => 70,  201 => 68,  195 => 67,  187 => 61,  175 => 53,  171 => 51,  168 => 50,  164 => 49,  150 => 38,  142 => 33,  137 => 31,  134 => 30,  132 => 29,  115 => 15,  112 => 14,  101 => 11,  98 => 10,  94 => 9,  90 => 7,  80 => 6,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -230,7 +248,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
         <li class=\"list-group-item d-flex justify-content-between align-items-center\">
             <a href = \"{{path ('listing_show', {'listingId' : listing.id }) }}\">{{listing.name}}</a>
         </li>       
-{% endfor %}
+    {% endfor %}
     <li class=\"list-group-item d-flex justify-content-between align-items-center\">
         <form method=\"post\" action=\"{{path ('listing_create')}} \">
             <div class=\"input-group\">
@@ -247,27 +265,42 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
         </ul>
     <div class=\"col-md-5 list mb-1\">    
         {% if currentlisting %}
-        <h5>
-            <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
+            <nav class=\"navbar navbar-expand-lg navbar-light bg-light justify-content-between\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
+                <div>
+                    <a href = \"{{path ('task_create', {'listingId' : currentlisting.id }) }}\">
+                <button class=\"btn btn-outline-primary\" type=\"submit\">
+                    <i class=\"fas fa-plus-square\"></i>
+                    </button>
+                </a>
                 <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\">
-                    <button class=\"btn btn-outline-danger\" type=\"delete\"><i class=\"fas fa-recycle\"></i></button>
+                    <button class=\"btn btn-outline-danger\" type=\"delete\">
+                        <i class=\"fas fa-recycle\"></i>
+                    </button>
+                    </a>
+                </div>
                 </a>
                 </nav>
-            </h5>
-               <div class=\"row px-4 mt-3\"> 
+           
+                <div class=\"row px-4 mt-3\"> 
               <table class=\"table table-striped\">
                 {% for task in currentlisting.tasks %}
                 {% if currentlisting.tasks | length %}
                 <tr>
                     <td>
-                        <a href = \"#\"> {{task.name}} </a>
+                        <a href class=\"navbar justify-content-between\"> {{task.name}}
+                            <button class=\"btn btn-outline-danger\" type=\"delete\">
+                                <i class=\"fas fa-recycle\"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
                 </div>
             {% else %}  
-        <h6 class=\"navbar-brand\" >Pas de tâche existante</h6>
-        <p>Vous pouvez créer une nouvelle tâche en cliquant sur le bouton <i class=\"fas fa-plus-square\"></i></p>
+        <h5 class=\"navbar-brand\" >Pas de tâche existante</h5>
+        <p> Vous pouvez créer une nouvelle tâche en cliquant sur le bouton
+            <i class=\"fas fa-plus-square\"></i>
+        </p>
         {% endif %}
         {% endfor %}
                 </table>

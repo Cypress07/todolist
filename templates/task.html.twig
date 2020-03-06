@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des tâches
+{% endblock %}
+{% block body %}
+    {{form_start (form, {'attr': {'style' : 'width:100%;'}})}}
+        {{form_widget (form)}}
+    {{form_end (form)}}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+     <script type="text/javascript">
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                inline: false,
+                sideBySide: true
+            })
+        })
+    </script>
+    {% endblock %}

@@ -116,6 +116,7 @@
     <parameter key="serializer.mapping.cache.prefix"></parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_4_horizontal_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">C:\workspace\todolist/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
@@ -324,6 +325,16 @@
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ListingController"/>
       </call>
+    </service>
+    <service id="App\Controller\TaskController" class="App\Controller\TaskController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\TaskController"/>
+      </call>
+    </service>
+    <service id="App\Form\TaskType" class="App\Form\TaskType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
     </service>
     <service id="App\Repository\ListingRepository" class="App\Repository\ListingRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -730,9 +741,11 @@
       <argument type="service" id="form.registry"/>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
+        <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\TaskType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1054,7 +1067,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.SFX6J7Y"/>
+      <argument type="service" id=".service_locator.mSVY6sL"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2354,6 +2367,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4580,6 +4601,11 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TaskType" class="App\Form\TaskType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TaskType" class="App\Form\TaskType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ListingRepository" class="App\Repository\ListingRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ListingRepository" class="App\Repository\ListingRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TaskRepository" class="App\Repository\TaskRepository" autowire="true" abstract="true"/>
@@ -4773,15 +4799,17 @@
         <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.pudvixt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.fmPta2I" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ListingController::create" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\ListingController::delete" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\ListingController::show" type="service" id=".service_locator.D6XybyG"/>
+        <argument key="App\Controller\TaskController::create" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\ListingController:create" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\ListingController:delete" type="service" id=".service_locator.D6XybyG"/>
         <argument key="App\Controller\ListingController:show" type="service" id=".service_locator.D6XybyG"/>
+        <argument key="App\Controller\TaskController:create" type="service" id=".service_locator.D6XybyG"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4843,9 +4871,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.SFX6J7Y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.mSVY6sL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\TaskType" type="service" id="App\Form\TaskType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5072,6 +5101,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\TaskController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TaskController"/>
+      <argument>App\Controller\TaskController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
     <service id=".service_locator.JFjjyG5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5211,12 +5246,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.pudvixt"/>
+      <argument type="service" id=".service_locator.fmPta2I"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.pudvixt"/>
+      <argument type="service" id=".service_locator.fmPta2I"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5597,7 +5632,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.pudvixt"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.fmPta2I"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

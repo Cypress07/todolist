@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
@@ -31,6 +33,23 @@ class Task
      * @ORM\JoinColumn ()
      */
     private $listing;
+
+    /**
+     * @ORM\Column (type="datetime", nullable=true)
+     */
+    private $dueDate;
+
+    /**
+     * @ORM\Column (type="smallint", nullable=true)
+     * @Assert\Range(
+     *      min = 5,
+     *      max = 240,
+     *      minMessage = "Vous devez choisir au minimum 5 minutes",
+     *      maxMessage = "Vous ne pouvez pas choisir plus de 240 minutes"
+     * )
+     */
+
+    private $reminder;
 
     public function getId(): ?int
     {
@@ -75,5 +94,38 @@ class Task
     public function setListing (Listing $listing): void
     {
         $this->listing = $listing;
+    }
+
+    /**
+     * return mixed
+     */
+
+    public function getDueDate()
+    {
+        return $this->dueDate;
+    }
+
+    /**
+     * @param mixed $dueDate
+     */
+    public function setDueDate($dueDate)
+    {
+        $this->dueDate = $dueDate;
+    }
+
+    /**
+     * return mixed
+     */
+    public function getReminder ()
+    {
+        return $this->reminder;
+    }
+
+    /**
+     * @param mixed $reminder
+     */
+    public function setReminder ($reminder)
+    {
+        $this->reminder =$reminder;
     }
 }

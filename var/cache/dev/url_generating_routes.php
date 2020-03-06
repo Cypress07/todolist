@@ -18,4 +18,5 @@ return [
     'listing_show' => [['listingId'], ['listingId' => null, '_controller' => 'App\\Controller\\ListingController::show'], ['listingId' => '\\d+'], [['variable', '/', '\\d+', 'listingId', true]], [], []],
     'listing_create' => [[], ['_controller' => 'App\\Controller\\ListingController::create'], [], [['text', '/new']], [], []],
     'listing_delete' => [['listingId'], ['_controller' => 'App\\Controller\\ListingController::delete'], ['listingId' => '\\d+'], [['text', '/delete'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
+    'task_create' => [['listingId'], ['_controller' => 'App\\Controller\\TaskController::create'], ['listingId' => '\\d+'], [['text', '/task/new'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
 ];
