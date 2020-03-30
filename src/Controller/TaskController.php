@@ -27,17 +27,62 @@ public function create ($listingId, Request $request, EntityManagerInterface $en
     $form = $this->createForm (TaskType::class, $task);
     $form->handleRequest($request);
     
-    
-
     if ($form->isSubmitted() && $form->isValid()){
             $entityManager->persist ($task);
             $entityManager->flush ();
             $this->addFlash ("success", "Votre tâche a été créée avec succès");
             return $this->redirectToRoute ('listing_show', ['listingId'=> $listingId]);
-
     }
     
         return $this->render ('task.html.twig', ['form' => $form->createView ()]);
 }
-    
+
+ /**
+ * @Route ("/{taskId}/edit" , name="edit", requirements={"taskId"="\d+"})
+ */
+public function edit($taskId , $listingId, Request $request, EntityManagerInterface $entityManager){
+    $task = $entityManager->getRepository(Task::class)->find($taskId);
+    if (empty($task)){
+        $this->addFlash(
+            'warning',
+            "Impossible de modifier la tâche"
+        );
+        return $this->redirectToRoute('listing_show',['listingId'=> $listingId]);
+    }
+    $name = $task->getName();
+    $form = $this -> createForm(TaskType::class , $task);
+    $form -> handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()){
+        $entityManager->flush();
+        $this->addFlash(
+            'success',
+            "La tache a été modifiée avec succés"
+        );
+        return $this->redirectToRoute('listing_show' , ['listingId' => $listingId ]);
+    }
+return $this->render('task.html.twig' , ['form' => $form->createView()]) ;
             }
+        /**
+    * @Route ("/{taskId}/delete", name="delete", requirements = {"taskId"="\d+"})
+    */
+    public function delete ($listingId, $taskId, EntityManagerInterface $entityManager){
+      
+        $task = $entityManager->getRepository(Task::class)->find($taskId);
+
+        if (empty($task)){
+            $this->addFlash(
+                'warning',
+                "Votre tâche n'a pu être supprimée, car elle n'existe pas"
+            );
+            return $this->redirectToRoute('listing_show',['listingId'=> $listingId]);
+        }
+        else {
+            $entityManager->remove ($task);
+            $entityManager->flush ();
+            $name = $task->getName();
+            $this->addFlash ("success-recycle", "Votre tâche « $name » a été supprimée avec succès");
+    }
+    return $this->redirectToRoute('listing_show' , ['listingId' => $listingId ]);
+                            
+        }
+}

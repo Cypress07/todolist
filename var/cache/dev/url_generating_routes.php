@@ -19,4 +19,6 @@ return [
     'listing_create' => [[], ['_controller' => 'App\\Controller\\ListingController::create'], [], [['text', '/new']], [], []],
     'listing_delete' => [['listingId'], ['_controller' => 'App\\Controller\\ListingController::delete'], ['listingId' => '\\d+'], [['text', '/delete'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
     'task_create' => [['listingId'], ['_controller' => 'App\\Controller\\TaskController::create'], ['listingId' => '\\d+'], [['text', '/task/new'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
+    'task_edit' => [['listingId', 'taskId'], ['_controller' => 'App\\Controller\\TaskController::edit'], ['listingId' => '\\d+', 'taskId' => '\\d+'], [['text', '/edit'], ['variable', '/', '\\d+', 'taskId', true], ['text', '/task'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
+    'task_delete' => [['listingId', 'taskId'], ['_controller' => 'App\\Controller\\TaskController::delete'], ['listingId' => '\\d+', 'taskId' => '\\d+'], [['text', '/delete'], ['variable', '/', '\\d+', 'taskId', true], ['text', '/task'], ['variable', '/', '\\d+', 'listingId', true]], [], []],
 ];

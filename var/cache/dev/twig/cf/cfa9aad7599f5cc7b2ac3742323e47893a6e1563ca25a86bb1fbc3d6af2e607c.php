@@ -125,6 +125,17 @@ class __TwigTemplate_5f75a5158fa86442662aca38d6f877d01a793153a09e859807b263f9d1b
      <script type=\"text/javascript\">
         \$(function () {
             \$('.datetimepicker').datetimepicker({
+                icons : {
+                    time: 'fa fa-time',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-chevron-up',
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove',
+                },  
                 inline: false,
                 sideBySide: true
             })
@@ -172,6 +183,17 @@ class __TwigTemplate_5f75a5158fa86442662aca38d6f877d01a793153a09e859807b263f9d1b
      <script type=\"text/javascript\">
         \$(function () {
             \$('.datetimepicker').datetimepicker({
+                icons : {
+                    time: 'fa fa-time',
+                    date: 'fa fa-calendar',
+                    up: 'fa fa-chevron-up',
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove',
+                },  
                 inline: false,
                 sideBySide: true
             })

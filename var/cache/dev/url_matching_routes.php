@@ -35,6 +35,8 @@ return [
                 .'|/(\\d+)?(*:176)'
                 .'|/(\\d+)/delete(*:197)'
                 .'|/(\\d+)/task/new(*:220)'
+                .'|/(\\d+)/task/(\\d+)/edit(*:250)'
+                .'|/(\\d+)/task/(\\d+)/delete(*:282)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -47,8 +49,10 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         176 => [[['_route' => 'listing_show', 'listingId' => null, '_controller' => 'App\\Controller\\ListingController::show'], ['listingId'], null, null, false, true, null]],
         197 => [[['_route' => 'listing_delete', '_controller' => 'App\\Controller\\ListingController::delete'], ['listingId'], null, null, false, false, null]],
-        220 => [
-            [['_route' => 'task_create', '_controller' => 'App\\Controller\\TaskController::create'], ['listingId'], null, null, false, false, null],
+        220 => [[['_route' => 'task_create', '_controller' => 'App\\Controller\\TaskController::create'], ['listingId'], null, null, false, false, null]],
+        250 => [[['_route' => 'task_edit', '_controller' => 'App\\Controller\\TaskController::edit'], ['listingId', 'taskId'], null, null, false, false, null]],
+        282 => [
+            [['_route' => 'task_delete', '_controller' => 'App\\Controller\\TaskController::delete'], ['listingId', 'taskId'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
