@@ -50,19 +50,18 @@
                 {% if currentlisting.tasks | length %}
                     <tr>
                     <td>
-                        <a href class="navbar justify-content-between"> {{task.name}}
-                      </td>
-                      <td>     
-                        <a href = "{{path ('task_edit', {'listingId' : currentlisting.id , 'taskId' : task.id }) }}">
+                    <a href class="navbar justify-content-between"> {{task.name}}</a>
+                    </td>
+                    <td>     
+                    <a href = "{{path ('task_edit', {'listingId' : currentlisting.id , 'taskId' : task.id }) }}">
                             <i class="fas fa-pencil-alt"></i>
                     </a>  
                     <a href = "{{path ('task_delete', {'listingId' : currentlisting.id, 'taskId': task.id }) }}">
-                    <button class="btn btn-outline-danger" type="delete">
-                        <i class="fas fa-recycle"></i>
-                    </button>
+                            <i class="far fa-trash-alt"></i>
+                            
                     </a>                
-                   </td>
-                </tr>
+                    </td>
+                    </tr>
                 </div>  
             {% else %}  
         <h5 class="navbar-brand" >Pas de tâche existante</h5>

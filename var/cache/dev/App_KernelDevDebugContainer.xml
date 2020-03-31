@@ -319,6 +319,14 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>C:\workspace\todolist\var\log/dev.log</argument>
     </service>
+    <service id="App\Command\ReminderCommand" class="App\Command\ReminderCommand" autowire="true" autoconfigure="true">
+      <tag name="console.command"/>
+      <argument>null</argument>
+      <argument type="service" id="App\Service\Reminder"/>
+      <call method="setName">
+        <argument>app:reminder</argument>
+      </call>
+    </service>
     <service id="App\Controller\ListingController" class="App\Controller\ListingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -343,6 +351,9 @@
     <service id="App\Repository\TaskRepository" class="App\Repository\TaskRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Service\Reminder" class="App\Service\Reminder" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="App\Service\StringUtils" class="App\Service\StringUtils" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
@@ -2367,6 +2378,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4590,6 +4609,8 @@
     </service>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.SensioLabs\Security\Command\SecurityCheckerCommand" class="SensioLabs\Security\Command\SecurityCheckerCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.SensioLabs\Security\Command\SecurityCheckerCommand" class="SensioLabs\Security\Command\SecurityCheckerCommand" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\ReminderCommand" class="App\Command\ReminderCommand" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Command\ReminderCommand" class="App\Command\ReminderCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ListingController" class="App\Controller\ListingController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5258,9 +5279,10 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator._PUozcC"/>
+      <argument type="service" id=".service_locator.Yb4C1Dt"/>
       <argument type="collection">
         <argument key="security:check">SensioLabs\Security\Command\SecurityCheckerCommand</argument>
+        <argument key="app:reminder">App\Command\ReminderCommand</argument>
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
         <argument key="cache:clear">console.command.cache_clear</argument>
@@ -5346,9 +5368,10 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator._PUozcC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Yb4C1Dt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Command\ReminderCommand" type="service" id="App\Command\ReminderCommand"/>
         <argument key="SensioLabs\Security\Command\SecurityCheckerCommand" type="service" id="SensioLabs\Security\Command\SecurityCheckerCommand"/>
         <argument key="console.command.about" type="service" id="console.command.about"/>
         <argument key="console.command.assets_install" type="service" id="console.command.assets_install"/>

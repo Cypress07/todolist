@@ -56,7 +56,7 @@ public function edit($taskId , $listingId, Request $request, EntityManagerInterf
         $entityManager->flush();
         $this->addFlash(
             'success',
-            "La tache a été modifiée avec succés"
+            "La tâche a été modifiée avec succés"
         );
         return $this->redirectToRoute('listing_show' , ['listingId' => $listingId ]);
     }
