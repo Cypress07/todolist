@@ -19,6 +19,18 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function findAllToRemind(\DateTime $datetime) {
+
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.reminderDone = false')
+            ->andWhere('t.dueDate <= :datetime')
+            ->setParameter('datetime', $datetime)
+            ->orderBy('t.dueDate', 'DESC')
+            ->getQuery()
+            ->getResult();         
+    }
+
+
     // /**
     //  * @return Task[] Returns an array of Task objects
     //  */
