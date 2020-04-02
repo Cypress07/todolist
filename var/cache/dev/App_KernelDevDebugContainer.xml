@@ -79,6 +79,9 @@
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="locale">en</parameter>
+    <parameter key="reminder.email.from">cypress2107@gmail.com</parameter>
+    <parameter key="reminder.email.to">m.ouzera@orange.fr</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -353,14 +356,14 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ListingController"/>
+        <argument type="service" id=".service_locator.tzEU8SB.App\Controller\ListingController"/>
       </call>
     </service>
     <service id="App\Controller\TaskController" class="App\Controller\TaskController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\TaskController"/>
+        <argument type="service" id=".service_locator.tzEU8SB.App\Controller\TaskController"/>
       </call>
     </service>
     <service id="App\Form\TaskType" class="App\Form\TaskType" autowire="true" autoconfigure="true">
@@ -379,6 +382,8 @@
       <argument type="service" id="App\Repository\TaskRepository"/>
       <argument type="service" id="twig"/>
       <argument type="service" id="swiftmailer.mailer.default"/>
+      <argument>cypress2107@gmail.com</argument>
+      <argument>m.ouzera@orange.fr</argument>
     </service>
     <service id="App\Service\StringUtils" class="App\Service\StringUtils" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
@@ -2717,7 +2722,7 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.LoApRHL.router.default"/>
+      <argument type="service" id=".service_locator.3ss7R8X.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
         <argument key="cache_dir">C:\workspace\todolist\var\cache\dev</argument>
@@ -5257,7 +5262,7 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.pNNo5z3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tzEU8SB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
@@ -5274,17 +5279,17 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ListingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tzEU8SB.App\Controller\ListingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ListingController"/>
       <argument>App\Controller\ListingController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+      <factory service=".service_locator.tzEU8SB" method="withContext"/>
     </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\TaskController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tzEU8SB.App\Controller\TaskController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\TaskController"/>
       <argument>App\Controller\TaskController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+      <factory service=".service_locator.tzEU8SB" method="withContext"/>
     </service>
     <service id=".service_locator.JFjjyG5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5298,17 +5303,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.JFjjyG5" method="withContext"/>
     </service>
-    <service id=".service_locator.LoApRHL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.3ss7R8X" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.LoApRHL.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.3ss7R8X.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.LoApRHL" method="withContext"/>
+      <factory service=".service_locator.3ss7R8X" method="withContext"/>
     </service>
     <service id=".service_locator.3TLJ8AE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5845,6 +5850,7 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
+    <service id=".service_locator.bQ1hrne" alias=".service_locator.tzEU8SB" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

@@ -1153,3 +1153,10 @@ b02cac,127.0.0.1,GET,http://localhost:8000/7/task/2/edit,1585750937,,200
 20969e,127.0.0.1,GET,http://localhost:8000/7/task/3/edit,1585750944,,200
 fee0c8,127.0.0.1,POST,http://localhost:8000/7/task/3/edit,1585750958,,302
 faa8df,127.0.0.1,GET,http://localhost:8000/7,1585750958,,200
+e54ca1,127.0.0.1,GET,http://localhost:8000/,1585830165,,200
+a3f1e6,127.0.0.1,GET,http://localhost:8000/7,1585830167,,200
+fe305c,127.0.0.1,GET,http://localhost:8000/7/task/new,1585830169,,200
+99e0d9,127.0.0.1,POST,http://localhost:8000/7/task/new,1585830184,,302
+a9ce5b,127.0.0.1,GET,http://localhost:8000/7,1585830185,,200
+b10eda,127.0.0.1,GET,http://localhost:8000/7/task/6/delete,1585830225,,302
+ccb7aa,127.0.0.1,GET,http://localhost:8000/7,1585830225,,200

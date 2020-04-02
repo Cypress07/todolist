@@ -16,15 +16,20 @@ class Reminder {
     protected $reminderEmailFrom;
     protected $reminderEmailTo;
     
-    public function __construct(EntityManagerInterface $entityManager, TaskRepository $taskRepository, Environment $templating, \Swift_Mailer $mailer)
+    public function __construct(
+                                EntityManagerInterface $entityManager,
+                                TaskRepository $taskRepository,
+                                Environment $templating,
+                                \Swift_Mailer $mailer,
+                                $reminderEmailFrom, $reminderEmailTo)
     {
         $this->entityManager = $entityManager;
         $this->taskRepository = $taskRepository;
 
         $this->templating = $templating;
         $this->mailer= $mailer;
-        $this->reminderEmailFrom = 'cypress2107@gmail.com';
-        $this->reminderEmailTo = 'm.ouzera@orange.fr';
+        $this->reminderEmailFrom = $reminderEmailFrom;
+        $this->reminderEmailTo = $reminderEmailTo;
     }
 
     public function remind ()
