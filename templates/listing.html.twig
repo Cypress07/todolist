@@ -17,7 +17,7 @@
                <input type ="text" placeholder="Ajouter une liste"
                class="form-control input-block-level" name="name"/>
                 <div class="input-group-append"></div>
-                    <button class="btn btn-outline-primary" type="submit">
+                    <button id="newlist" class="btn btn-outline-primary" type="submit">
                         <i class="fas fa-plus-square"></i>
                     </button>
                     </div>
@@ -30,12 +30,12 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
                 <a class="navbar-brand" href="#">{{currentlisting.name}}</a>
                 <div>
-                    <a href = "{{path ('task_create', {'listingId' : currentlisting.id }) }}">
+                    <a id="new" href = "{{path ('task_create', {'listingId' : currentlisting.id }) }}">
                 <button class="btn btn-outline-primary" type="submit">
                     <i class="fas fa-plus-square"></i>
                     </button>
                 </a>
-                <a href = "{{path ('listing_delete', {'listingId' : currentlisting.id }) }}">
+                <a id="del" href = "{{path ('listing_delete', {'listingId' : currentlisting.id }) }}">
                     <button class="btn btn-outline-danger" type="delete">
                         <i class="fas fa-recycle"></i>
                     </button>

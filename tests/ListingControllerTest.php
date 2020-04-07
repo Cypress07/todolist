@@ -34,4 +34,41 @@ class ListingControllerTest extends WebTestCase
         ];
     }
 
+    public function testAccessNewTask ()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $linkCrawler = $crawler->filter ('#new');
+        $link = $linkCrawler->selectLink ('')->link();
+
+        $crawler = $client->click($link);
+
+        $this->assertSame(200, $client->getResponse()->getStatusCode());
+        $this->assertStringContainsString('Créer une tâche', $crawler->filter('h2')->text());
+    }
+
+    public function testListingCreation()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+        $linkCrawler = $crawler->filter ('#newlist');
+        $form = $linkCrawler->selectButton ('')->form();
+
+        $form['name']->setValue('Listing de test');
+        //$form['Category[VatRate]']->select (0.1);
+
+        $crawler = $client->submit($form);
+        $this->assertTrue($client->getResponse()->isRedirect());
+
+        //var_dump($crawler->html());
+        $crawler = $client->followRedirect();
+
+        $this->assertSame(200, $client->getResponse()->getStatusCode());
+        $this->assertStringContainsString('créée avec succès', $crawler->filter('div')
+        ->text($default = null, $normalizeWhitespace = true));
+        $this->assertStringContainsString('Listing de test', $client->getResponse()->getContent());
+        
+    }
+
+
 }

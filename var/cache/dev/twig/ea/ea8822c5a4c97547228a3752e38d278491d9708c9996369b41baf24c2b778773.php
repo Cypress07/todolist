@@ -118,7 +118,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                <input type =\"text\" placeholder=\"Ajouter une liste\"
                class=\"form-control input-block-level\" name=\"name\"/>
                 <div class=\"input-group-append\"></div>
-                    <button class=\"btn btn-outline-primary\" type=\"submit\">
+                    <button id=\"newlist\" class=\"btn btn-outline-primary\" type=\"submit\">
                         <i class=\"fas fa-plus-square\"></i>
                     </button>
                     </div>
@@ -137,7 +137,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 31, $this->source); })()), "name", [], "any", false, false, false, 31), "html", null, true);
             echo "</a>
                 <div>
-                    <a href = \"";
+                    <a id=\"new\" href = \"";
             // line 33
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("task_create", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
             echo "\">
@@ -145,7 +145,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     <i class=\"fas fa-plus-square\"></i>
                     </button>
                 </a>
-                <a href = \"";
+                <a id=\"del\" href = \"";
             // line 38
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 38, $this->source); })()), "id", [], "any", false, false, false, 38)]), "html", null, true);
             echo "\">
@@ -266,7 +266,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                <input type =\"text\" placeholder=\"Ajouter une liste\"
                class=\"form-control input-block-level\" name=\"name\"/>
                 <div class=\"input-group-append\"></div>
-                    <button class=\"btn btn-outline-primary\" type=\"submit\">
+                    <button id=\"newlist\" class=\"btn btn-outline-primary\" type=\"submit\">
                         <i class=\"fas fa-plus-square\"></i>
                     </button>
                     </div>
@@ -279,12 +279,12 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
             <nav class=\"navbar navbar-expand-lg navbar-light bg-light justify-content-between\">
                 <a class=\"navbar-brand\" href=\"#\">{{currentlisting.name}}</a>
                 <div>
-                    <a href = \"{{path ('task_create', {'listingId' : currentlisting.id }) }}\">
+                    <a id=\"new\" href = \"{{path ('task_create', {'listingId' : currentlisting.id }) }}\">
                 <button class=\"btn btn-outline-primary\" type=\"submit\">
                     <i class=\"fas fa-plus-square\"></i>
                     </button>
                 </a>
-                <a href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\">
+                <a id=\"del\" href = \"{{path ('listing_delete', {'listingId' : currentlisting.id }) }}\">
                     <button class=\"btn btn-outline-danger\" type=\"delete\">
                         <i class=\"fas fa-recycle\"></i>
                     </button>
