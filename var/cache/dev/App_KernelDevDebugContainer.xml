@@ -20,6 +20,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -73,6 +74,10 @@
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="path">C:\workspace\todolist\vendor\symfony\swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">C:\workspace\todolist\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -366,6 +371,12 @@
         <argument type="service" id=".service_locator.tzEU8SB.App\Controller\TaskController"/>
       </call>
     </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\ListingFixtures" class="App\DataFixtures\ListingFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
     <service id="App\Form\TaskType" class="App\Form\TaskType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -377,6 +388,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Service\BankAccount" class="App\Service\BankAccount" autowire="true" autoconfigure="true"/>
     <service id="App\Service\Reminder" class="App\Service\Reminder" autowire="true" autoconfigure="true">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="App\Repository\TaskRepository"/>
@@ -1751,6 +1763,7 @@
           <argument>C:\workspace\todolist\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\workspace\todolist\vendor\symfony\web-server-bundle/translations</argument>
           <argument>C:\workspace\todolist\vendor\symfony\swiftmailer-bundle/translations</argument>
+          <argument>C:\workspace\todolist\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -1771,6 +1784,7 @@
             <argument>C:\workspace\todolist\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\workspace\todolist\vendor\symfony\web-server-bundle/translations</argument>
             <argument>C:\workspace\todolist\vendor\symfony\swiftmailer-bundle/translations</argument>
+            <argument>C:\workspace\todolist\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4782,6 +4796,29 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader" public="false">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ListingFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.SensioLabs\Security\Command\SecurityCheckerCommand" class="SensioLabs\Security\Command\SecurityCheckerCommand" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.SensioLabs\Security\Command\SecurityCheckerCommand" class="SensioLabs\Security\Command\SecurityCheckerCommand" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Console\Command\Command.0.App\Command\ReminderCommand" class="App\Command\ReminderCommand" autowire="true" abstract="true"/>
@@ -4792,6 +4829,10 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TaskController" class="App\Controller\TaskController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ListingFixtures" class="App\DataFixtures\ListingFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ListingFixtures" class="App\DataFixtures\ListingFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TaskType" class="App\Form\TaskType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TaskType" class="App\Form\TaskType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ListingRepository" class="App\Repository\ListingRepository" autowire="true" abstract="true"/>
@@ -5454,7 +5495,7 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.kObeKyO"/>
+      <argument type="service" id=".service_locator.3tWHSqc"/>
       <argument type="collection">
         <argument key="security:check">SensioLabs\Security\Command\SecurityCheckerCommand</argument>
         <argument key="app:reminder">App\Command\ReminderCommand</argument>
@@ -5526,6 +5567,7 @@
         <argument key="debug:swiftmailer">swiftmailer.command.debug</argument>
         <argument key="swiftmailer:email:send">swiftmailer.command.new_email</argument>
         <argument key="swiftmailer:spool:send">swiftmailer.command.send_email</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -5546,7 +5588,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.kObeKyO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.3tWHSqc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Command\ReminderCommand" type="service" id="App\Command\ReminderCommand"/>
@@ -5588,6 +5630,7 @@
         <argument key="doctrine.database_drop_command" type="service" id="doctrine.database_drop_command"/>
         <argument key="doctrine.database_import_command" type="service" id="doctrine.database_import_command"/>
         <argument key="doctrine.ensure_production_settings_command" type="service" id="doctrine.ensure_production_settings_command"/>
+        <argument key="doctrine.fixtures_load_command" type="service" id="doctrine.fixtures_load_command"/>
         <argument key="doctrine.mapping_convert_command" type="service" id="doctrine.mapping_convert_command"/>
         <argument key="doctrine.mapping_import_command" type="service" id="doctrine.mapping_import_command"/>
         <argument key="doctrine.mapping_info_command" type="service" id="doctrine.mapping_info_command"/>

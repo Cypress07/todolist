@@ -182,7 +182,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     echo "\">
                             <i class=\"fas fa-pencil-alt\"></i>
                     </a>  
-                    <a href = \"";
+                    <a id=\"deltask\" href = \"";
                     // line 59
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("task_delete", ["listingId" => twig_get_attribute($this->env, $this->source, (isset($context["currentlisting"]) || array_key_exists("currentlisting", $context) ? $context["currentlisting"] : (function () { throw new RuntimeError('Variable "currentlisting" does not exist.', 59, $this->source); })()), "id", [], "any", false, false, false, 59), "taskId" => twig_get_attribute($this->env, $this->source, $context["task"], "id", [], "any", false, false, false, 59)]), "html", null, true);
                     echo "\">
@@ -305,7 +305,7 @@ class __TwigTemplate_db966ac9d08beae5b5dad1c46cea257407e8b9059d419857b34b14ad4f9
                     <a href = \"{{path ('task_edit', {'listingId' : currentlisting.id , 'taskId' : task.id }) }}\">
                             <i class=\"fas fa-pencil-alt\"></i>
                     </a>  
-                    <a href = \"{{path ('task_delete', {'listingId' : currentlisting.id, 'taskId': task.id }) }}\">
+                    <a id=\"deltask\" href = \"{{path ('task_delete', {'listingId' : currentlisting.id, 'taskId': task.id }) }}\">
                             <i class=\"far fa-trash-alt\"></i>
                             
                     </a>                
