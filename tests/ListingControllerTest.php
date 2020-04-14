@@ -2,6 +2,9 @@
 
 namespace App\Tests;
 
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Symfony\Bridge\Doctrine\DataFixtures\ContainerAwareLoader;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ListingControllerTest extends WebTestCase
@@ -16,6 +19,34 @@ class ListingControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Hello World');
     }
     */
+
+    /**
+     * @var $fixturesLoader ContainerAwareLoader
+     */
+
+     private $fixturesLoader;
+     private  $fixturesExecutor;
+
+     public function setup()
+     {
+        parent::setup();
+        $client = static::createClient();
+        $this->fixturesLoader = new ContainerAwareLoader($client->getContainer());
+        $entityManager = static::$kernel->getContainer()->get('doctrine')->getManager();
+        $this->fixturesExecutor = new ORMExecutor($entityManager, new ORMPurger($entityManager));
+
+        self::ensureKernelShutdown();//
+
+     }
+
+     public function loadFixtures (){
+         $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/ListingFixtures.php");
+         $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
+         $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/DataFixtures.php");
+         $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
+     }
+
+
 /**
  * @dataProvider urlProvider
  */

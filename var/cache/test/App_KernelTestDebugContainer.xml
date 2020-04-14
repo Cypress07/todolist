@@ -1045,7 +1045,6 @@
         <argument key="App\Form\TaskType" type="service" id="App\Form\TaskType" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\ListingRepository" type="service" id="App\Repository\ListingRepository" on-invalid="ignore_uninitialized"/>
         <argument key="App\Repository\TaskRepository" type="service" id="App\Repository\TaskRepository" on-invalid="ignore_uninitialized"/>
-        <argument key="App\Service\BankAccount" type="service" id="App\Service\BankAccount" on-invalid="ignore_uninitialized"/>
         <argument key="App\Service\Reminder" type="service" id="App\Service\Reminder" on-invalid="ignore_uninitialized"/>
         <argument key="App\Service\StringUtils" type="service" id="App\Service\StringUtils" on-invalid="ignore_uninitialized"/>
         <argument key="Doctrine\Common\Annotations\Reader" type="service" id="annotations.cached_reader" on-invalid="ignore_uninitialized"/>
