@@ -101,6 +101,21 @@ class ListingControllerTest extends WebTestCase
         $this->assertStringContainsString('Listing de test', $client->getResponse()->getContent());
         
     }
-
+    public function testAccessAgendaTask ()
+    {
+            $this->loadFixtures();
+    
+            $client = static::createClient();
+            $crawler = $client->request('GET', '/');
+            $linkCrawler = $crawler->filter ('li a')->last();
+            $link = $linkCrawler->selectLink('Réunion du 15 avril 2020')->link();
+        
+        
+            $crawler = $client->click($link);
+    
+            $this->assertSame(200, $client->getResponse()->getStatusCode());
+            $this->assertStringContainsString('Définir ordre du jour', $client->getResponse()->getContent());
+        
+    }
 
 }
