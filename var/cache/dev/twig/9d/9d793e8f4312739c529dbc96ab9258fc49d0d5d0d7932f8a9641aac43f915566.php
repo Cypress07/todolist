@@ -68,49 +68,40 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 \t\t\t\t<a class=\"navbar-brand\" href=\"";
         // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("listing_show");
-        echo "\">Navigation</a>
+        echo "\"></a>
 \t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
 \t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t\t\t</button>
 \t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarNav\">
 \t\t\t\t\t<ul class=\"navbar-nav\">
 \t\t\t\t\t\t<li class=\"nav-item active\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Home
+\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">
 \t\t\t\t\t\t\t\t<span class=\"sr-only\">(current)</span>
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t</li>
-                     \t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Features</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Pricing</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-\t\t\t\t\t\t</li>
-
+                     \t
                         ";
-        // line 42
-        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 42, $this->source); })()), "user", [], "any", false, false, false, 42)) {
-            // line 43
+        // line 33
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 33, $this->source); })()), "user", [], "any", false, false, false, 33)) {
+            // line 34
             echo "                           <li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 44
+            // line 35
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_login");
             echo "\">Connexion</a>
 \t\t\t\t\t\t</li>
                         ";
         } else {
-            // line 47
+            // line 38
             echo "                        <li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link\" href=\"";
-            // line 48
+            // line 39
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_logout");
             echo "\">Déconnexion</a>
 \t\t\t\t\t\t</li>
                         ";
         }
-        // line 51
+        // line 42
         echo "\t\t\t\t\t</ul>
 \t\t\t\t</div>
 \t\t\t</nav>
@@ -123,15 +114,15 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
 \t\t\t<div style=\"width:100%;\">
 \t\t\t\t";
-        // line 62
+        // line 53
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 62, $this->source); })()), "flashes", [0 => "warning"], "method", false, false, false, 62));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "flashes", [0 => "warning"], "method", false, false, false, 53));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 63
+            // line 54
             echo "\t\t\t\t\t<div class=\"alert alert-danger\">
 \t\t\t\t\t\t<i class=\"fas fa-skull-crossbones\"></i>
 \t\t\t\t\t\t";
-            // line 65
+            // line 56
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
 \t\t\t\t\t</div>
@@ -140,18 +131,18 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 68
+        // line 59
         echo "
 \t\t\t\t";
-        // line 69
+        // line 60
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 69, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 69));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 60, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 60));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 70
+            // line 61
             echo "\t\t\t\t\t<div class=\"alert alert-success\">
 \t\t\t\t\t\t<i class=\"fas fa-thumbs-up\"></i>
 \t\t\t\t\t\t";
-            // line 72
+            // line 63
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
 \t\t\t\t\t</div>
@@ -160,16 +151,16 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 75
+        // line 66
         echo "\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 75, $this->source); })()), "flashes", [0 => "double"], "method", false, false, false, 75));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "flashes", [0 => "double"], "method", false, false, false, 66));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 76
+            // line 67
             echo "\t\t\t\t\t<div class=\"alert alert-warning\">
 \t\t\t\t\t\t<i class=\"fas fa-exclamation-triangle\"></i>
 \t\t\t\t\t\t";
-            // line 78
+            // line 69
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
 \t\t\t\t\t</div>
@@ -178,16 +169,16 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 81
+        // line 72
         echo "\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 81, $this->source); })()), "flashes", [0 => "success-recycle"], "method", false, false, false, 81));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 72, $this->source); })()), "flashes", [0 => "success-recycle"], "method", false, false, false, 72));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 82
+            // line 73
             echo "\t\t\t\t\t<div class=\"alert alert-success\">
 \t\t\t\t\t\t<i class=\"fas fa-recycle\"></i>
 \t\t\t\t\t\t";
-            // line 84
+            // line 75
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
 \t\t\t\t\t</div>
@@ -196,19 +187,19 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 87
+        // line 78
         echo "\t\t\t</div>
 \t\t\t<div class=\"row mt-5\"> ";
-        // line 88
+        // line 79
         $this->displayBlock('body', $context, $blocks);
-        // line 89
+        // line 80
         echo "\t\t\t\t</div>
 \t\t\t</div>
 
 \t\t\t";
-        // line 92
+        // line 83
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 103
+        // line 94
         echo "\t\t</body>
 \t</html>
 ";
@@ -262,7 +253,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     }
 
-    // line 88
+    // line 79
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -280,7 +271,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     }
 
-    // line 92
+    // line 83
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -290,7 +281,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 93
+        // line 84
         echo "\t\t\t\t<script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
 \t\t\t\t<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
 \t\t\t\t<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -321,7 +312,7 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 
     public function getDebugInfo()
     {
-        return array (  294 => 93,  284 => 92,  266 => 88,  252 => 11,  242 => 10,  224 => 8,  212 => 103,  210 => 92,  205 => 89,  203 => 88,  200 => 87,  191 => 84,  187 => 82,  182 => 81,  173 => 78,  169 => 76,  164 => 75,  155 => 72,  151 => 70,  147 => 69,  144 => 68,  135 => 65,  131 => 63,  127 => 62,  114 => 51,  108 => 48,  105 => 47,  99 => 44,  96 => 43,  94 => 42,  70 => 21,  63 => 16,  61 => 10,  58 => 9,  56 => 8,  47 => 1,);
+        return array (  285 => 84,  275 => 83,  257 => 79,  243 => 11,  233 => 10,  215 => 8,  203 => 94,  201 => 83,  196 => 80,  194 => 79,  191 => 78,  182 => 75,  178 => 73,  173 => 72,  164 => 69,  160 => 67,  155 => 66,  146 => 63,  142 => 61,  138 => 60,  135 => 59,  126 => 56,  122 => 54,  118 => 53,  105 => 42,  99 => 39,  96 => 38,  90 => 35,  87 => 34,  85 => 33,  70 => 21,  63 => 16,  61 => 10,  58 => 9,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -346,27 +337,18 @@ class __TwigTemplate_6ddc216faa59a07abe95bc8b7a0881f5557b0706db83acd786cf3af7f8d
 \t\t<div class=\"container\">
 
 \t\t\t<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-\t\t\t\t<a class=\"navbar-brand\" href=\"{{path('listing_show')}}\">Navigation</a>
+\t\t\t\t<a class=\"navbar-brand\" href=\"{{path('listing_show')}}\"></a>
 \t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
 \t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t\t\t</button>
 \t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarNav\">
 \t\t\t\t\t<ul class=\"navbar-nav\">
 \t\t\t\t\t\t<li class=\"nav-item active\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Home
+\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">
 \t\t\t\t\t\t\t\t<span class=\"sr-only\">(current)</span>
 \t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t</li>
-                     \t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Features</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Pricing</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-\t\t\t\t\t\t</li>
-
+                     \t
                         {% if not app.user %}
                            <li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link\" href=\"{{path('security_login')}}\">Connexion</a>

@@ -39,14 +39,7 @@ class ListingControllerTest extends WebTestCase
 
      }
 
-     public function loadFixtures (){
-         $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/ListingFixtures.php");
-         $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
-         $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/DataFixtures.php");
-         $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
-     }
-
-
+   
 /**
  * @dataProvider urlProvider
  */
@@ -63,6 +56,14 @@ class ListingControllerTest extends WebTestCase
             ['/'],
             ['/19']
         ];
+    }
+
+    public function loadFixtures ()
+    {
+        $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/ListingFixtures.php");
+        $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
+        $this->fixturesLoader->loadFromFile(__DIR__ . "/../DataFixtures/DataFixtures.php");
+        $this->fixturesExecutor->execute ($this->fixturesLoader->getFixtures());
     }
 
     public function testAccessNewTask ()
